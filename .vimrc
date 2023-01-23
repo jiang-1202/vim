@@ -1,3 +1,4 @@
+" go 语言配置
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 filetype on                     "检测文件类型
 set smartindent                 "智能缩进

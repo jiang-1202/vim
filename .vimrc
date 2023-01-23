@@ -1,0 +1,95 @@
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+filetype on                     "检测文件类型
+set smartindent                 "智能缩进
+set scrolloff=10                "垂直滚动时，光标距离顶部/底部的位置（单位：行）
+set sidescrolloff=15            "水平滚动时，光标距离行首或行尾的位置（单位：字符）
+set nobackup                    "不需要备份
+set noswapfile                  "禁止生成临时文件
+set nobackup                    "不创建备份文件
+set nowrap                      "不让太长的一行折行显示
+set nocompatible                "去除vi特性
+set shiftwidth=4        		">＞ ＜<缩进四个空格	
+set noautochdir                 "禁止生成.us 文件
+set ambiwidth=double            "解决中文标点问题
+set autoindent 		        "设置缩进规则根据上一行判断
+set background=dark  	        "主题黑色模式
+set tabstop=4   	        "按下tab等于4个空格
+set encoding=utf-8  	        "编码格式
+set expandtab		        "自动将tab转空格
+set number                      "显示行号
+set relativenumber              "显示光标当前所在行号,并上下计数
+set splitright                  "设置左右分割窗口时，新窗口出现在右侧
+set splitbelow                  "置水平分割窗口时，新窗口出现在底部
+set cursorline                  "高亮光标所在行
+set wildmenu                    "命令模式下，底部操作指令按下Tab 键自动补全
+set wildmode=longest:list,full  "第一次按下Tab，会品示所有匹配的操作指令的清单；第二次按下 Tab，会依次选择各个指令
+set mouse=                      "a,开启所有模式的mouse支持 n普通模式 v可视模式  i插入模式  c命令行模式  h 在帮助文件里,以上所有的模式    a 以上所有的模式    r 跳过 hit-enter 提示    A 在可视模式下自动选择 关闭鼠标模式 :set mouse=, =后面不要跟任何值, 可以关闭鼠标模式
+set updatetime=200              "设置延迟更新的时间为 100 毫秒
+set signcolumn=yes              "始终显示标记列。
+set foldmethod=indent           "代码折叠
+set foldlevelstart=99           "避免一打开就全是折叠的
+set visualbell t_vb=            "禁止所有提示音
+
+"禁止键盘上下左右按键
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
+call plug#begin()
+Plug 'morhetz/gruvbox'                              "主题
+Plug 'fatih/vim-go'                                 "go补全
+Plug 'voldikss/vim-floaterm'                        "浮动终端
+Plug 'preservim/tagbar'                             "查看项目
+Plug 'scrooloose/nerdtree'                          "文件管理
+Plug 'vim-airline/vim-airline'                      "底部状态栏
+Plug 'vim-airline/vim-airline-themes'               "底部状态栏样式
+Plug 'yianwillis/vimcdoc'                           "中文文档
+"Plug 'ghifarit53/tokyonight-vim'                    "东京主题
+call plug#end()
+
+"morhetz/gruvbox  setting
+let g:gruvbox_improved_warnings=1
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
+
+
+
+"fatih/vim-go setting
+imap <S-Tab>  <C-x><C-o>
+
+let g:go_diagnostics_level = 2
+let g:go_auto_type_info = 1
+let g:go_updatetime = 100
+
+let g:go_highlight = 1
+let g:go_highlight_types = 1
+let g:go_highlight_debug = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_array_whitespace_error = 1
+"let g:go_highlight_trailing_whitespace_error = 1
+
+"voldikss/vim-floater  setting
+nnoremap <C-r> :FloatermNew<CR>
+tnoremap <C-r> <C-\><C-n>:FloatermKill<CR>
+        
+"preservim/tagbar  setting
+nmap <C-k> :TagbarToggle<CR>
+
+"scrooloose/nerdtree seting
+nnoremap <C-g> :NERDTreeToggle<CR>
+
+"vim-airline/vim-airlin seting
+let g:airline_theme='apprentice'
+
